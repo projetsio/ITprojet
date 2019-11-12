@@ -11,6 +11,7 @@ foreach($listeConference as $uneConference){
     	{
     ?>
     <td><?php echo "Conferencier : ".$unConferencier[1]."  ".$unConferencier[2]; ?></td>
+    <td><?php echo "<img src=vues/conferencier/image/".$unConferencier[3].">" ?></td>
     <td><?php echo "Description : ".$unConferencier[4]; ?></td>
    </tr>
    <?php
