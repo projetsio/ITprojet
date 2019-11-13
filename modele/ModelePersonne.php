@@ -13,6 +13,7 @@ class ModelePersonne{
 	$liste = $result->fetchAll();
 	foreach ($liste as $unePersonne)
 	{
+		$_SESSION['id']=$unePersonne[0];
 		$_SESSION['log']=$unePersonne[1];
 		$_SESSION['stat']=$unePersonne[5];
 	}
