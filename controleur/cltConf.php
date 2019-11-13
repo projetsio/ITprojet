@@ -9,5 +9,11 @@ switch($action){
 			include("./vues/conference/vueLesConference.php");
 			break;
 		}
+		
+		case 'inscription':{
+			ModeleConf::inscription($_GET["date"],$_GET["conf"],$_SESSION["id"]);
+			header("Location: index.php");
+			break;
+		}
 	}
 ?>
