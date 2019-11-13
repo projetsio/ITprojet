@@ -33,5 +33,17 @@ class ModeleConf extends dbPdo {
 		die ("Erreur dans la BDD");
 		}
 	}
+	
+	public static function inscription($date,$idc,$ide){
+		try{
+			$sql="INSERT INTO reservation VALUES ($date,$idc,$ide)";
+			$result=dpPDO::$pdo->exec($sql);
+		}
+		catch (PDOException $e){
+			echo $e->getMessage();
+			die ("Erreur dans la BDD");
+		}
+	}
+		
 }
 ?>
