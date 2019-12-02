@@ -33,14 +33,20 @@
       </div>
     </li>
 <?php
-  if (isset($_SESSION["conferencier"]))
-  {
+  if (isset($_SESSION["conferencier"])) {
 ?>
     <li class="nav-item">
-      <a class="nav-link" href="#">Faire l'appel</a>
+      <a class="nav-link" href="index.php?ctl=conf&action=appel">Faire l'appel</a>
     </li>
 <?php 
-}
+  }
+  if(isset($_SESSION["stat"]) && $_SESSION["stat"]==1){
+?>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php?ctl=admin&action=accueil">Administration</a>
+    </li>
+<?php
+  }
 ?>
 </ul>
 
