@@ -24,8 +24,9 @@ class ModelePersonne{
         $liste = $result->fetchAll();
         foreach($liste as $unePersonne)
         {
-          $_SESSION['log']=$unePersonne[1];
-          $_SESSION['conferencier']="1";
+    	   	$_SESSION['id']=$unePersonne[0];
+        	$_SESSION['log']=$unePersonne[1];
+        	$_SESSION['conferencier']="1";
         }      
 	}
 
@@ -62,7 +63,7 @@ class ModelePersonne{
 	try
 		{
 			$sql="SELECT* from conferencier";
-			$result = dbPDO::$pdo->query($sql);
+			$result = dbPdo::$pdo->query($sql);
 			$liste = $result->fetchAll();
 			return $liste;
 		}
