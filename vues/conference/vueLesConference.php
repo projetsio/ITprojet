@@ -18,17 +18,25 @@ foreach($listeConference as $uneConference){ ?>
         <td><?php echo "<img src=vues/conferencier/image/".$unConferencier[3].">" ?></td>
         <td><?php echo "Description : ".$unConferencier[4]; ?></td>
         <td><?php echo "Date : ".$uneConference[5]; ?></td>
-        <?php if(!isset($_SESSION["conferencier"])&isset($_SESSION["log"])){ 
+        <?php if(!isset($_SESSION["conferencier"])&&isset($_SESSION["log"])){ 
             $test=ModeleConf::testinscription($_SESSION['id']);
-            if ($test=="vide"){ 
+            if ($test=="vide"){
                 echo "<td><a href=index.php?clt=conf&action=inscription&conf=".$uneConference[0]."&date=".$uneConference[5]."&id=".$_SESSION['id'].">S'inscrire</a></td>"; 
             }else{
                 echo "<td>Déjà inscrit</td>";
-            } 
+            }
         } ?>
     </tr>
    <?php
-    } ?>
-<?php
+    } 
 } ?>
 </table>
+<br><br>
+<?php 
+if(!isset($_SESSION["conferencier"])&&isset($_SESSION["log"])){ 
+    $test=ModeleConf::testinscription($_SESSION['id']);
+    if ($test!="vide"){ 
+        echo "<a href=index.php?clt=conf&action=desinscription>Se désinscrire</a>";
+    }
+}
+?>
